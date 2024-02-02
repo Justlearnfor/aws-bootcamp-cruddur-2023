@@ -52,8 +52,8 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
 # AWS XRAY------
-xray_url = os.getenv("AWS_XRAY_URL")
-xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+# xray_url = os.getenv("AWS_XRAY_URL")
+# xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 app = Flask(__name__)
 
@@ -63,7 +63,7 @@ FlaskInstrumentor().instrument_app(app)
 RequestsInstrumentor().instrument()
 
 # AWS XRAY------
-XRayMiddleware(app, xray_recorder)
+# XRayMiddleware(app, xray_recorder)
 
 frontend = os.getenv('FRONTEND_URL')
 backend = os.getenv('BACKEND_URL')
@@ -122,6 +122,7 @@ def data_message_groups():
     return model['data'], 200
 
 @app.route("/api/messages/@<string:handle>", methods=['GET'])
+# @xray_recorder.capture('User_Activities')
 def data_messages(handle):
   user_sender_handle = 'andrewbrown'
   user_receiver_handle = request.args.get('user_reciever_handle')
@@ -148,6 +149,7 @@ def data_create_message():
   return
 
 @app.route("/api/activities/home", methods=['GET'])
+# @xray_recorder.capture('Home_Activities')
 def data_home():
   data = HomeActivities.run()
   return data, 200
