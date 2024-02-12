@@ -78,4 +78,3 @@ networks:
 volumes:
   db:
     driver: local
-    name: cruddur
