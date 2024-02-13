@@ -53,6 +53,12 @@ We can create the database within the PSQL client
 CREATE database cruddur;
 ```
 
+Set Connection URL for database (ease of logging into db)
+
+```sh
+export CONNECTION_URL="postgresql://postgres:password@localhost:5432/cruddur"
+```
+
 ## Import Script
 
 We'll create a new SQL file called `schema.sql`

@@ -14,8 +14,6 @@
 			"extensions": [
 				"ms-python.python",
 				"ms-azuretools.vscode-docker",
-				"mtxr.sqltools",
-				"ms-ossdata.vscode-postgresql"
 			]
 		}
 	},
