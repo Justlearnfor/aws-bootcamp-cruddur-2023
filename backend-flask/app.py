@@ -231,3 +231,6 @@ def rollbar_test():
 
 if __name__ == "__main__":
   app.run(debug=True)
+
+#app.config['ENV'] = 'development'
+#app.config['DEBUG'] = True
